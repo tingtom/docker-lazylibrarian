@@ -26,14 +26,14 @@ RUN \
  mkdir -p \
 	/app/lazylibrarian && \
  if [ -z ${LAZYLIBRARIAN_COMMIT+x} ]; then \
- 	LAZYLIBRARIAN_COMMIT=$(curl -sX GET "https://gitlab.com/api/v4/projects/9317860/repository/commits/master" \
+ 	LAZYLIBRARIAN_COMMIT=$(curl -sX GET "https://gitlab.com/api/v4/projects/16034931/repository/commits/master" \
     	| awk '/id/{print $4;exit}' FS='[""]'); \
  fi && \
  echo "Installing from commit ${LAZYLIBRARIAN_COMMIT}" && \
  echo "${LAZYLIBRARIAN_COMMIT}" > /defaults/version.txt && \
  curl -o \
  /tmp/lazylibrarian.tar.gz -L \
-	"https://gitlab.com/LazyLibrarian/LazyLibrarian/repository/archive.tar.gz?sha={$LAZYLIBRARIAN_COMMIT}" && \
+	"https://gitlab.com/tingtom/LazyLibrarian/repository/archive.tar.gz?sha={$LAZYLIBRARIAN_COMMIT}" && \
  tar xf \
  /tmp/lazylibrarian.tar.gz -C \
 	/app/lazylibrarian --strip-components=1 && \
